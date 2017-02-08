@@ -1,6 +1,6 @@
 ---
 title: "Regression-1"
-author: "Vicki Hertzberg"
+author: "Gaea Daniel"
 date: "February 8, 2017"
 output: html_document
 ---
@@ -73,7 +73,9 @@ Let's do that now with the Galton data:
 ```{r}
 # linear regression of child height on mid-parent height in the training dataset
 reg1 <- lm(child ~ parent, data = Galton.train)
+#before the tilde is the output (y) and after is the input/predictor (x)
 summary(reg1)
+#must run summary code to get output
 ```
 **Interpretation:** for each increase in parent height of 1 inch, the child height increases by 0.65 inches.
 
@@ -120,6 +122,7 @@ resid <- rep(0, length(parent))
 
 #plot residual versus X
 plot(resid~parent, data = Galton.test)
+abline(0,0)
 #overlay the zero line
 par(new=TRUE)
 plot(resid~parent, pch = 16, cex = .1, axes = FALSE, labels = FALSE)
@@ -268,6 +271,9 @@ We can compare the results of these two analyses a little more cleanly using the
 ```{r results="asis"}
 # compare the results of the two regression models
 stargazer(prestige.mod1,prestige.mod2,title="Comparison of 2 Regression outputs",type="html",align=TRUE)
+#use "text" instead of "html" to get and actual output in R. "html" only gives formatted outcome in a webpage
+# compare the results of the two regression models
+stargazer(prestige.mod1,prestige.mod2,title="Comparison of 2 Regression outputs",type="text",align=TRUE)
 ```
 
 We conclude that we lose little by eliminating a predictor variable. This is also consistent with a principle of parsimony, also known as the KISS principle, or "Keep It Simple, Silly".
