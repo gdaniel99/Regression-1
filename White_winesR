@@ -1,58 +1,16 @@
-<!-- R Commander Markdown Template -->
 
-Replace with Main Title
-=======================
-
-### Your Name
-
-### `r as.character(Sys.Date())`
-
-```{r echo=FALSE}
-# include this code chunk as-is to set options
-knitr::opts_chunk$set(comment=NA, prompt=TRUE, out.width=750, fig.height=8, fig.width=8)
-library(Rcmdr)
-library(car)
-library(RcmdrMisc)
-```
-
-
-```{r echo=FALSE}
-# include this code chunk as-is to enable 3D graphs
-library(rgl)
-knitr::knit_hooks$set(webgl = hook_webgl)
-```
-
-
-```{r}
 names(White_wines) <- make.names(names(White_wines))
-```
-
-```{r}
 compareCoefs(prestige.mod2, reg1)
-```
-
-```{r}
 compareCoefs(prestige.mod1, prestige.mod2, reg1)
-```
-
-```{r}
 whwi <- 
   read.table("/Users/gdaniel99/RStudio Stuff/Regression-1/White_wines.csv", 
   header=TRUE, sep=",", na.strings="NA", dec=".", strip.white=TRUE)
-```
-
-```{r}
 RegModel.1 <- 
   lm(quality~alcohol+chlorides+citric.acid+density+fixed.acidity+free.sulfur.dioxide+pH+residual.sugar+sulphates+total.sulfur.dioxide+volatile.acidity,
    data=whwi)
 summary(RegModel.1)
-```
-
-```{r}
 RegModel.2 <- 
   lm(quality~alcohol+chlorides+citric.acid+density+fixed.acidity+free.sulfur.dioxide+pH+residual.sugar+sulphates+total.sulfur.dioxide+volatile.acidity,
    data=whwi)
 summary(RegModel.2)
-```
-
 

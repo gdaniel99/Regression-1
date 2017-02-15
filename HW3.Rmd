@@ -1,10 +1,10 @@
 ---
-title: "HW #3: Monster Lab Meeting"
+title: 'HW #3: Monster Lab Meeting'
 author: "Gaea Daniel"
 date: "February 15, 2017"
-output: 
-  pdf_document: default
+output:
   html_document: default
+  pdf_document: default
   word_document: default
 ---
 ```{r}
@@ -14,6 +14,7 @@ library(latticeExtra)
 library(Rcmdr)
 library(RcmdrMisc)
 library(RColorBrewer)
+library(datasets)
 #Import "White_wines.csv" data from Files
 ```
 
@@ -48,6 +49,8 @@ histogram(~pH, data=White_wines)
 histogram(~sulphates, data=White_wines)
 histogram(~alcohol, data=White_wines)
 histogram(~quality, data=White_wines)
+
+
 #To get multivariate graphs
 scatterplotMatrix(~fixed.acidity + volatile.acidity + citric.acid, data=White_wines)
 scatterplotMatrix(~residual.sugar + chlorides + free.sulfur.dioxide + total.sulfur.dioxide, data=White_wines)
@@ -57,28 +60,19 @@ scatterplotMatrix(~density + pH + sulphates + alcohol, data=White_wines)
 Regression (Models explored, diagnostics completed, final model choice, justification)
 
 ```{r}
-#To get regression
-whwi.mod1 <- lm(quality ~ fixed.acidity + volatile.acidity + citric.acid, data=White_wines)
-#To see regression statistics
-summary(whwi.mod1)
+#To get linear regression data
+RegModel.1 <- 
+  lm(quality~alcohol+chlorides+citric.acid+density+fixed.acidity+free.sulfur.dioxide+pH+residual.sugar+sulphates+total.sulfur.dioxide+volatile.acidity,
+   data=whwi)
+summary(RegModel.1)
 
-#Citric acid is removed because p (=0.73) is greater than the significance level of alpha=0.05.
-#To get regression
-whwi.mod1 <- lm(quality ~ fixed.acidity + volatile.acidity, data=White_wines)
-#To see regression statistics
-summary(whwi.mod1)
-
-#To get regression
-whwi.mod2 <- lm(quality ~ residual.sugar + chlorides + free.sulfur.dioxide + total.sulfur.dioxide, data=White_wines)
-#To see regression statistics
-summary(whwi.mod2)
-
-#To get regression
-whwi.mod3 <- lm(quality ~ density + pH + sulphates + alcohol, data=White_wines)
-#To see regression statistics
-summary(whwi.mod3)
+#Linear regression data without variables where p<0.05 (chlorides, citric.acid, total.sulfur.dioxide) indicating a lack of significance
+RegModel.1 <- 
+  lm(quality~alcohol+density+fixed.acidity+free.sulfur.dioxide+pH+residual.sugar+sulphates+volatile.acidity,
+    data=whwi)
+summary(RegModel.1)
 ```
 
 Please include a concluding paragraph (or two) about the implications of your findings.
 
-If education increases by 1 year, then average prestige rating will increase by 3.73 units, with income and women held constant.
+If alcohol increases by 1 unit, then average quality rating will increase by 1.932e-01 units, with the other variables held constant.
