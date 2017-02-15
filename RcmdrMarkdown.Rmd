@@ -1,0 +1,105 @@
+<!-- R Commander Markdown Template -->
+
+Replace with Main Title
+=======================
+
+### Your Name
+
+### `r as.character(Sys.Date())`
+
+```{r echo=FALSE}
+# include this code chunk as-is to set options
+knitr::opts_chunk$set(comment=NA, prompt=TRUE, out.width=750, fig.height=8, fig.width=8)
+library(Rcmdr)
+library(car)
+library(RcmdrMisc)
+```
+
+
+```{r echo=FALSE}
+# include this code chunk as-is to enable 3D graphs
+library(rgl)
+knitr::knit_hooks$set(webgl = hook_webgl)
+```
+
+
+```{r}
+names(White_wines) <- make.names(names(White_wines))
+```
+
+```{r}
+with(White_wines, Hist(alcohol, scale="frequency", breaks="Sturges", 
+  col="darkgray"))
+```
+
+```{r}
+with(White_wines, Hist(chlorides, scale="frequency", breaks="Sturges", 
+  col="darkgray"))
+```
+
+```{r}
+with(White_wines, Hist(chlorides, scale="frequency", breaks="Sturges", 
+  col="darkgray"))
+```
+
+```{r}
+with(White_wines, Hist(chlorides, scale="frequency", breaks="Sturges", 
+  col="darkgray"))
+```
+
+```{r}
+with(White_wines, Hist(citric.acid, scale="frequency", breaks="Sturges", 
+  col="darkgray"))
+```
+
+```{r}
+with(White_wines, Hist(density, scale="frequency", breaks="Sturges", 
+  col="darkgray"))
+```
+
+```{r}
+with(White_wines, Hist(fixed.acidity, scale="frequency", breaks="Sturges", 
+  col="darkgray"))
+```
+
+```{r}
+with(White_wines, Hist(free.sulfur.dioxide, scale="frequency", 
+  breaks="Sturges", col="darkgray"))
+```
+
+```{r}
+with(White_wines, Hist(pH, scale="frequency", breaks="Sturges", 
+  col="darkgray"))
+```
+
+```{r}
+with(White_wines, Hist(quality, scale="frequency", breaks="Sturges", 
+  col="darkgray"))
+```
+
+```{r}
+with(White_wines, Hist(residual.sugar, scale="frequency", breaks="Sturges", 
+  col="darkgray"))
+```
+
+```{r}
+with(White_wines, Hist(sulphates, scale="frequency", breaks="Sturges", 
+  col="darkgray"))
+```
+
+```{r}
+with(White_wines, Hist(total.sulfur.dioxide, scale="frequency", 
+  breaks="Sturges", col="darkgray"))
+```
+
+```{r}
+with(White_wines, Hist(volatile.acidity, scale="frequency", 
+  breaks="Sturges", col="darkgray"))
+```
+
+```{r}
+with(White_wines, Hist(volatile.acidity, scale="frequency", 
+  breaks="Sturges", col="darkgray"))
+```
+
+
