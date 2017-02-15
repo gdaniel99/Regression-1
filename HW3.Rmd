@@ -75,4 +75,4 @@ summary(RegModel.1)
 
 Please include a concluding paragraph (or two) about the implications of your findings.
 
-If alcohol increases by 1 unit, then average quality rating will increase by 1.932e-01 units, with the other variables held constant.
+For ten of the thirteen varibles, there was a significant relationship between quality and If alcohol increases by 1 unit, then average quality rating will increase by 1.932e-01 units, with the other variables held constant.
