@@ -3,12 +3,11 @@ title: 'HW #3: Monster Lab Meeting'
 author: "Gaea Daniel"
 date: "February 15, 2017"
 output:
-  html_document: default
-  pdf_document: default
   word_document: default
+  pdf_document: default
+  html_document: default
 ---
 ```{r}
-White_wines <- read.csv("White_wines.csv")
 #To load necessary packages
 library(lattice)
 library(latticeExtra)
@@ -16,7 +15,6 @@ library(Rcmdr)
 library(RcmdrMisc)
 library(RColorBrewer)
 library(datasets)
-library(car)
 #Import "White_wines.csv" data from Files
 ```
 
@@ -31,7 +29,6 @@ Prepare a report for presentation at the next Monster lab meeting about this dat
 
 Rubric:
 
-## Summary Statistics, Univarite graphs, and multivariate graphs
 Exploration (summary statistics (the m's), univariate graphs, multivariate graphs)
 
 ```{r}
@@ -58,31 +55,22 @@ scatterplotMatrix(~residual.sugar + chlorides + free.sulfur.dioxide + total.sulf
 scatterplotMatrix(~density + pH + sulphates + alcohol, data=White_wines)
 ```
 
-## Linear regression
 Regression (Models explored, diagnostics completed, final model choice, justification)
 
 ```{r}
 #To get linear regression data
 RegModel.1 <- 
   lm(quality~alcohol+chlorides+citric.acid+density+fixed.acidity+free.sulfur.dioxide+pH+residual.sugar+sulphates+total.sulfur.dioxide+volatile.acidity,
-   data=White_wines)
+   data=whwi)
 summary(RegModel.1)
 
 #Linear regression data without variables where p<0.05 (chlorides, citric.acid, total.sulfur.dioxide) indicating a lack of significance
 RegModel.1 <- 
   lm(quality~alcohol+density+fixed.acidity+free.sulfur.dioxide+pH+residual.sugar+sulphates+volatile.acidity,
-    data=White_wines)
+    data=whwi)
 summary(RegModel.1)
 ```
 
 Please include a concluding paragraph (or two) about the implications of your findings.
 
-For ten of the thirteen varibles, there was a significant relationship (as indicated by a p-value of less than 0.05) between the quality of the alcohol and each of the other variables. The significant relationships for quality versus each of the varibles are described as follows:
-If alcohol increases by 1 unit, then average quality rating will increase by 1.932e-01 units, with the other variables held constant.
-If density increases by 1 unit, then average quality rating will decrease by 1.543e+02 units, with the other variables held constant.
-If fixed acidity increases by 1 unit, then average quality rating will increase by 6.810e-02 units, with the other variables held constant.
-If free sulfur dioxide increases by 1 unit, then average quality rating will increase by 3.349e-03 units, with the other variables held constant.
-If pH increases by 1 unit, then average quality rating will increase by 6.942e-01 units, with the other variables held constant.
-If residual sugar increases by 1 unit, then average quality rating will increase by 8.285e-02 units, with the other variables held constant.
-If sulfates increases by 1 unit, then average quality rating will increase by 6.285e-01 units, with the other variables held constant.
-If volatile acidity increases by 1 unit, then average quality rating will decrease by 1.888 units, with the other variables held constant.
+For ten of the thirteen varibles, there was a significant relationship between quality and If alcohol increases by 1 unit, then average quality rating will increase by 1.932e-01 units, with the other variables held constant.
